@@ -1,4 +1,4 @@
-package stock;
+
 
 
 public class Produit {
