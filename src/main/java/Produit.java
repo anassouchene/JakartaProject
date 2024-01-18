@@ -1,8 +1,7 @@
-
-
+package org.example.jeeproject.Product;
 
 public class Produit {
- 
+
     private String nomProduit;
     private int quantiteProduit;
     private int prixProduit;
@@ -17,22 +16,28 @@ public class Produit {
         this.productDescription = productDescription;
     }
 
+    // Getter methods
     public String getNomProduit() {
-        return this.nomProduit;
+        return nomProduit;
     }
 
     public int getQuantiteProduit() {
-        return this.quantiteProduit;
+        return quantiteProduit;
+    }
+
+    public int getPrixProduit() {
+        return prixProduit;
     }
 
     public String getProductCategory() {
-        return this.productCategory;
+        return productCategory;
     }
 
     public String getProductDescription() {
-        return this.productDescription;
+        return productDescription;
     }
 
+    // Setter methods
     public void setNomProduit(String nomProduit) {
         this.nomProduit = nomProduit;
     }
@@ -41,19 +46,15 @@ public class Produit {
         this.quantiteProduit = quantiteProduit;
     }
 
+    public void setPrixProduit(int prixProduit) {
+        this.prixProduit = prixProduit;
+    }
+
     public void setProductCategory(String productCategory) {
         this.productCategory = productCategory;
     }
 
     public void setProductDescription(String productDescription) {
         this.productDescription = productDescription;
-    }
-
-    public int getPrixProduit() {
-        return prixProduit;
-    }
-
-    public void setPrixProduit(int prixProduit) {
-        this.prixProduit = prixProduit;
     }
 }
