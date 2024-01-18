@@ -1,4 +1,4 @@
-
+package org.example.jeeproject.Product;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -9,12 +9,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MethodeProduit {
-    private static final String JDBC_URL = "jdbc:mysql://localhost:3306/jee-projet";
+    private static final String JDBC_URL = "jdbc:mysql://localhost:3306/jee-project";
     private static final String JDBC_USER = "root";
     private static final String JDBC_PASSWORD = "";
     public void ajouterProduit(String nomProduit, int quantiteProduit, String productCategory, String productDescription, int prixProduit) {
         try (Connection connection = DriverManager.getConnection(JDBC_URL, JDBC_USER, JDBC_PASSWORD);
-             PreparedStatement statement = connection.prepareStatement("INSERT INTO stock (nom_produit, quantite_produit, productCategory, productdescription, prix_produit) VALUES (?, ?, ?, ?, ?)")) {
+             PreparedStatement statement = connection.prepareStatement("INSERT INTO stock (nom_produit, quantite_produit, productCategory, productdescription, prix_produit) VALUES (?, ?, ?, ?, ?)"))
+        {
             statement.setString(1, nomProduit);
             statement.setInt(2, quantiteProduit);
             statement.setString(3, productCategory);
@@ -22,12 +23,9 @@ public class MethodeProduit {
             statement.setInt(5, prixProduit);
             statement.executeUpdate();
         } catch (SQLException e) {
-            // Gérer l'exception de manière appropriée
             e.printStackTrace();
         }
     }
-
-
     public List<Produit> selectProduits() {
         List<Produit> produits = new ArrayList<>();
         try (Connection connection = DriverManager.getConnection(JDBC_URL, JDBC_USER, JDBC_PASSWORD);
@@ -48,7 +46,6 @@ public class MethodeProduit {
         }
         return produits;
     }
-
     public void modifierProduit(String nomProduit, int newQuantite, String newCategory, String newDescription, int newPrix) {
         try (Connection connection = DriverManager.getConnection(JDBC_URL, JDBC_USER, JDBC_PASSWORD);
              PreparedStatement statement = connection.prepareStatement("UPDATE stock SET quantite_produit=?, productCategory=?, productdescription=?, prix_produit=? WHERE nom_produit=?")) {
@@ -59,7 +56,6 @@ public class MethodeProduit {
             statement.setString(5, nomProduit);
             statement.executeUpdate();
         } catch (SQLException e) {
-            // Gérer l'exception de manière appropriée
             e.printStackTrace();
         }
     }
@@ -70,7 +66,6 @@ public class MethodeProduit {
             statement.setString(1, nomProduit);
             statement.executeUpdate();
         } catch (SQLException e) {
-            // Gérer l'exception de manière appropriée
             e.printStackTrace();
         }
     }
